@@ -1,9 +1,11 @@
 package feature
 
-func twoSum(nums []int, target int) []int {
+import "fmt"
+
+func TwoSum(nums []int, target int) {
 	length := len(nums)
 	var newSlice []int
-	var signal bool
+	var signal bool = false
 	for i := 0; i < length; i++ {
 		for j := i + 1; j < length; j++ {
 			tar := nums[i] + nums[j]
@@ -13,9 +15,9 @@ func twoSum(nums []int, target int) []int {
 			}
 
 		}
-		if signal == true {
+		if signal {
 			break
 		}
 	}
-	return newSlice
+	fmt.Printf("%v", newSlice)
 }
