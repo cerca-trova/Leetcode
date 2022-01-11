@@ -19,5 +19,5 @@ func TwoSum(nums []int, target int) {
 			break
 		}
 	}
-	fmt.Printf("%v", newSlice)
+	fmt.Printf("%v\n", newSlice)
 }

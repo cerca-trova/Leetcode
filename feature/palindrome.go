@@ -10,7 +10,7 @@ func IsPalindrome(x int) bool {
 	}
 
 	if x > 0 {
-		temp := x
+		ret := x
 		y := 0
 		d := calDigits(x)
 		for i := d; i > 0; i-- {
@@ -18,7 +18,7 @@ func IsPalindrome(x int) bool {
 			x = (x - last_digit) / 10
 			y = y + last_digit*micheng(i)
 		}
-		if y == temp {
+		if y == ret {
 			signal = true
 		} else {
 			signal = false
