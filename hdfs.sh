@@ -20,16 +20,18 @@ function obtain_hadoop_install_package() {
 }
 
 
-function display_help() {}
-
-function distribute_install_file() {
-
+function parse_config_file() {
+    while read line;do
+        if [[ $line = \[datanode\] ]];then
+            echo "this datanode"
+        fi
+    done < role.txt
 }
 
-function process_datanode(){}
 
-function process_namenode(){}
 
-function main() {
-    for i in 
-}
+
+
+
+parse_config_file
+

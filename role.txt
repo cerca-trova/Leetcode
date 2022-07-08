@@ -1,0 +1,10 @@
+[datanode]
+hadoop
+hadoop02
+hadoop03
+
+[namenode]
+hadoop01
+
+[secondnamenode]
+hadoop02

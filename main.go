@@ -13,4 +13,6 @@ func main() {
 	} else {
 		fmt.Println("Not Correct!")
 	}
+
+	fmt.Println(functions.Return_user_id())
 }
