@@ -12,7 +12,7 @@ MIRROR=https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-$HADOOP_
 function obtain_hadoop_install_package() {
     if [ ! -f /soft/hadoop-$HADOOP_VERSION.tar.gz ];then
         echo "[WARNING] The file hadoop-$HADOOP_VERSION.tar.gz for hadoop installation not existed in local directory /soft." 
-        echo "[WARNING] Start obtain installation package from Internet, It will take several minutes."
+        echo "[INFO] Start obtain installation package from Internet, It will take several minutes."
         echo -n "Downloading $MIRROR/hadoop-$HADOOP_VERSION.tar.gz to local directory ---> /soft ......"
         wget -q $MIRROR/hadoop-$HADOOP_VERSION.tar.gz -O /soft/hadoop-$HADOOP_VERSION.tar.gz
         echo "Done"
@@ -21,11 +21,17 @@ function obtain_hadoop_install_package() {
 
 
 function parse_config_file() {
+    echo -n "datanode[s] are ["
     while read line;do
         if [[ $line = \[datanode\] ]];then
-            echo "this datanode"
+            continue
         fi
+        if [[ $line = \[namenode\] ]] || [[ \[secondarynamenode\] ]];then
+            break
+        fi
+        echo -n $line,
     done < role.txt
+    echo "]"
 }
 
 

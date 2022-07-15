@@ -1,5 +1,5 @@
 [datanode]
-hadoop
+hadoop01
 hadoop02
 hadoop03
 
